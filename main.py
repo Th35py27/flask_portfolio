@@ -2,9 +2,10 @@ from flask import Flask, render_template
 from flask_cors import CORS
 from flask_restful import Api
 from api.shopping import Predict
+from api.stats import stats_api 
 
 app = Flask(__name__)
-
+app.register_blueprint(stats_api)
 # Register CORS for cross-origin requests
 CORS(app, supports_credentials=True, origins=['http://localhost:4100', 'http://127.0.0.1:4100', 'https://nighthawkcoders.github.io'])
 
